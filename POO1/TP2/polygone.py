@@ -18,8 +18,7 @@ class Polygone():
     def getSommet(self, i):
         #returns the corner at the i position of index
         return self.__sommets[i]
-            
-    
+           
     def aireSelf(self):
        #return the polygon's area
        n = len(self.__sommets) # number of corners
