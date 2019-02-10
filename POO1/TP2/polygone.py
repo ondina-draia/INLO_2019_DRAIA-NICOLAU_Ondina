@@ -6,7 +6,6 @@ Created on Sun Feb 10 17:40:57 2019
 """
 
 #from point_base import Point
-#import math
 
 class Polygone():
     ''' class representing a polygon '''
