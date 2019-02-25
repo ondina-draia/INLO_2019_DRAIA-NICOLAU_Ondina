@@ -3,33 +3,33 @@
 
 # Listez les autres cas d'utilisation de la partie A #
 
-Une université fait partie d'une accadémie (une accadémie posséde une ou plusieurs universités).
-Une classe est composée de plusieurs étudiants. On doit pouvoir imprimer le nombre d'étudiants par classe.
-On veut connaître les classes que peut contenir une salle de cours.
-Une année universitaire comporte une ou plusieurs classes.
-Il est possible d'imprimer les salles réservées par une classe comme emploi du temps.
-Il est également possible d'imprimer les classes qui ont réservé une salle comme emploi du temps.
-Pour un département, on veut connaître le nom et prénom de l'enseignant responsable.
-Pour chaque enseignant, on veut savoir quelle matière il enseigne.
-Une salle de classe se définit également par son mobilier (nombre de vidéo projecteurs, nombre d'ordinateurs, nombre de tableaux à craie et de tableaux à feutre...).
+Une universitÃ© fait partie d'une acadÃ©mie (une acadÃ©mie possÃ©de une ou plusieurs universitÃ©s).
+Une classe est composÃ©e de plusieurs Ã©tudiants. On doit pouvoir imprimer le nombre d'Ã©tudiants par classe.
+On veut connaÃ®tre les classes que peut contenir une salle de cours.
+Une annÃ©e universitaire comporte une ou plusieurs classes.
+Il est possible d'imprimer les salles rÃ©servÃ©es par une classe comme emploi du temps.
+Il est Ã©galement possible d'imprimer les classes qui ont rÃ©servÃ© une salle comme emploi du temps.
+Pour un dÃ©partement, on veut connaÃ®tre le nom et prÃ©nom de l'enseignant responsable.
+Pour chaque enseignant, on veut savoir quelle matiÃ¨re il enseigne.
+Une salle de classe se dÃ©finit Ã©galement par son mobilier (nombre de vidÃ©o projecteurs, nombre d'ordinateurs, nombre de tableaux Ã  craie et de tableaux Ã  feutre...).
 
 
-# Rédigez un cas d'utilisation de votre choix #
+# RÃ©digez un cas d'utilisation de votre choix #
 
 Nom: inscription universitaire version 1.0
-Description: l'utilisateur se connecte en tapant l'url du site web et s'inscrit ou s'identifie sur la partie réservée à cet effet
+Description: l'utilisateur se connecte en tapant l'url du site web et s'inscrit ou s'identifie sur la page web rÃ©servÃ©e Ã  cet effet
 Acteur: l'utilisateur du site web
-Références: aucune pour le moment
-Préalables: site web opérationel
-Conséquents: l'utilisateur devient membre et/ou est identifié en tant que membre, et peut naviguer sur la partie lui étant réservée
-Séquences d'évènements:
+RÃ©fÃ©rences: aucune pour le moment
+PrÃ©alables: site web opÃ©rationel
+ConsÃ©quents: l'utilisateur devient membre et/ou est identifiÃ© en tant que membre, et peut naviguer sur la partie du site lui Ã©tant rÃ©servÃ©e
+SÃ©quences d'Ã©vÃ¨nements:
 	- l'utilisateur ouvre le navigateur et tape l'url du site
-	- le système ouvre la page d'accueil du site
-	- l'utilisateur accède ainsi à la page d'accueil
-	- l'utilisateur s'identifie (en rentrant son numéro étudiant et son code personnel), ou demande à s'inscrire (en rentrant son nom, prénom, niveau universitaire demandé, le nom et lieu de l'université précédente, un code personnel, une adresse email où lui sera envoyé son numéro étudiant)
-	- le système vérifie alors l'identification de l'usager (notament en demandant le numéro étudiant si l'utilisateur vient de s'inscrire) et en fonction de la réponse permet ou non à l'utilisateur d'accéder à la partie réservée uniquement aux membres qui sont étudiants à cette université
-	- l'utilisateur qui réussit l'identification accéde à la partie membres et découvre les services qui lui sont offerts
+	- le systÃ¨me ouvre la page d'accueil du site
+	- l'utilisateur accÃ¨de ainsi Ã  la page d'accueil
+	- l'utilisateur s'identifie (en rentrant son numÃ©ro Ã©tudiant et son code personnel), ou demande Ã  s'inscrire (en rentrant son nom, prÃ©nom, niveau universitaire demandÃ©, le nom et lieu de l'universitÃ© prÃ©cÃ©dente, un code personnel, une adresse email oÃ¹ lui sera envoyÃ© son numÃ©ro Ã©tudiant)
+	- le systÃ¨me vÃ©rifie alors l'identification de l'usager (notament en demandant le numÃ©ro Ã©tudiant si l'utilisateur vient de s'inscrire) et en fonction de la rÃ©ponse permet ou non Ã  l'utilisateur d'accÃ©der Ã  la partie rÃ©servÃ©e uniquement aux membres qui sont Ã©tudiants Ã  cette universitÃ©
+	- l'utilisateur qui rÃ©ussit l'identification accÃ©de Ã  la partie membres et dÃ©couvre les services qui lui sont offerts
 Exceptions:
-	- le système décèle une erreur d'identification et offre une nouvelle possibilité d'identification en affichant un message d'erreur (Votre numéro étudiant ou votre mot de passe est incorrect)
-	- l'utilisateur essaye de s'identifier une nouvelle fois
-	- le système vérifie à nouveau le numéro étudiant et le mot de passe; si l'identification est réussie, le système permet alors l'accès à la zone membres, sinon il redonne une dernière chance à l'utilisateur avant de bloquer l'accés pendant une période donnée (T = 3 heures)
+	- le systÃ¨me dÃ©cÃ¨le une erreur d'identification et offre une nouvelle possibilitÃ© d'identification en affichant un message d'erreur (le numÃ©ro Ã©tudiant ou le mot de passe tapÃ© est incorrect)
+	- l'utilisateur peut retenter de s'identifier une nouvelle fois
+	- le systÃ¨me vÃ©rifie Ã  nouveau le numÃ©ro Ã©tudiant et le mot de passe; si l'identification est rÃ©ussie, le systÃ¨me permet alors l'accÃ¨s Ã  la zone membres, sinon il redonne une derniÃ¨re chance Ã  l'utilisateur avant de bloquer l'accÃ©s pendant une pÃ©riode donnÃ©e (T = 3 heures)
