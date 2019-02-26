@@ -214,7 +214,6 @@ def restaurerGraphe():
         return
     lst_coord = []
     lst_etiquettes = []
-#    dict_etiq_coord = {}
     for line in fichier:
         import re
         coord = re.findall("([0-9]*[\.0][0-9\.0])", line) #recupere les coordonnees 
