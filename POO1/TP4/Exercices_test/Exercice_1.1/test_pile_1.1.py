@@ -22,9 +22,7 @@ class TestPile(unittest.TestCase):
         
     def test_sommet(self):
         """Verifie egalement qu'on ne peut lire le sommet d'une pile vide"""
-        #self.
-        self.assertRaises(IndexError, pile_file_obj.Pile.sommet, self)
-        
+        self.assertRaises(IndexError, pile_file_obj.Pile.sommet, self)        
 
 if __name__ == '__main__':
 	unittest.main() 
