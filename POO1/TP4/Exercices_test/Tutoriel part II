@@ -1,0 +1,57 @@
+Tutoriel, part II
+
+Code d'erreur obtenu en exécutant la commande python3 -m unittest test_random.py -v:
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo$ python3 -m unittest test_random.py -v
+test_choice (test_random.RandomTest)
+Teste le fonctionnement de la fonction 'random.choice'. ... ok
+test_choice_erroneous_test (test_random.RandomTest)
+Teste très mal le fonctionnement de la fonction 'random.choice'. ... FAIL
+test_crashing_test (test_random.RandomTest)
+Teste et crashe sur une division par zéro. ... ERROR
+test_sample (test_random.RandomTest)
+Teste le fonctionnement de la fonction 'random.sample'. ... ok
+test_sample_check_exception (test_random.RandomTest)
+Teste le fonctionnement de la fonction 'random.sample' dans ... ok
+test_sample_check_exception2 (test_random.RandomTest)
+Teste le fonctionnement de la fonction 'random.sample' dans ... ok
+test_shuffle (test_random.RandomTest)
+Teste le fonctionnement de la fonction 'random.shuffle'. ... ok
+
+======================================================================
+ERROR: test_crashing_test (test_random.RandomTest)
+Teste et crashe sur une division par zéro.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/test_random.py", line 60, in test_crashing_test
+    self.assertEqual(6, 6 / 0)
+ZeroDivisionError: division by zero
+
+======================================================================
+FAIL: test_choice_erroneous_test (test_random.RandomTest)
+Teste très mal le fonctionnement de la fonction 'random.choice'.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/test_random.py", line 56, in test_choice_erroneous_test
+    self.assertIn(elt, ('a', 'b', 'c'))
+AssertionError: 5 not found in ('a', 'b', 'c')
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.012s
+
+FAILED (failures=1, errors=1)
+
+Combien de tests échouent, combien de tests crashent ? Pourquoi ?
+
+On voit que deux tests échouent.
+Un à cause d'une division par 0.
+L'autre à cause d'un élément non trouvé dans une liste (5 dans la liste ('a', 'b', 'c'))
+
+Notez les deux façons de tester qu’un code lève une Exception.
+
+Les deux façons qu'un code lève une exception:
+soit en disant que le test renvoie un FAIL soit que le test renvoie une ERROR.
+FAIL: Teste très mal le fonctionnement de la fonction demandée
+ERROR: Teste et crashe
+
+Cherchez sur internet le rôle des méthodes setUp et tearDown.
