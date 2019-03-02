@@ -1,0 +1,50 @@
+Exercice : tests fonctionnels d’une Pile et d’une File
+
+1.1. Tests fonctionnels de deux méthodes de la classe Pile 
+
+Si la liste définie dans le setUp est bien définie vide (self.pile = list(range(0))) :
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/TP4$ python3 test_pile.py -v
+test_depiler (__main__.TestPile)
+Verifie qu'une pile vide ne peut être dépilée, lévée d'exception si la pile est vide ... ok
+test_sommet (__main__.TestPile)
+Verifie egalement qu'on ne peut lire le sommet d'une pile vide ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
+
+Si la liste définie dans le setUp n'est pas définie comme vide (self.pile = list(range(1)) par exemple):
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/TP4$ python3 test_pile.py -v
+test_depiler (__main__.TestPile)
+Verifie qu'une pile vide ne peut être dépilée, lévée d'exception si la pile est vide ... FAIL
+test_sommet (__main__.TestPile)
+Verifie egalement qu'on ne peut lire le sommet d'une pile vide ... FAIL
+
+======================================================================
+FAIL: test_depiler (__main__.TestPile)
+Verifie qu'une pile vide ne peut être dépilée, lévée d'exception si la pile est vide
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_pile.py", line 33, in test_depiler
+    self.assertRaises(IndexError, pile_file_obj.Pile.depiler, self)
+AssertionError: IndexError not raised by depiler
+
+======================================================================
+FAIL: test_sommet (__main__.TestPile)
+Verifie egalement qu'on ne peut lire le sommet d'une pile vide
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_pile.py", line 38, in test_sommet
+    self.assertRaises(IndexError, pile_file_obj.Pile.sommet, self)
+AssertionError: IndexError not raised by sommet
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.016s
+
+FAILED (failures=2)
+
+Lorsque la liste est vide, l'exception IndexError est bien lévée donc les tests sonr validés.
+Lorsque la liste n'est pas vide, l'exception IndexError n'est pas lévée et donc le test n'est pas validé, on a donc un message de type FAIL du test.
