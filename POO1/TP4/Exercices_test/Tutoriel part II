@@ -55,3 +55,7 @@ FAIL: Teste très mal le fonctionnement de la fonction demandée
 ERROR: Teste et crashe
 
 Cherchez sur internet le rôle des méthodes setUp et tearDown.
+
+Si une méthode setUp() est définie, la réalisation du test va faire tourner cette méthode en priorité AVANT chaque autre test.
+Si la méthode tearDown() est définie, la réalisation de cette méthode va être réalisée APRES chaque test.
+Ces méthodes permettent donc de réaliser un code flexible, qui n'a pas qu'une logique linéaire basique de réalisation.
