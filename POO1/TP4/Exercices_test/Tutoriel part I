@@ -1,0 +1,82 @@
+Tutoriel part I
+
+Il n'y avait pas questions à répondre mais j'ai préféré créer tout de même un fichier avec ce que le terminal affiche
+
+Question 3:
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/math/test$ python3 test_mymath.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/math/test$ python3 test_mymath.py -v
+test_add_floats (__main__.TestAdd) ... ok
+test_add_integers (__main__.TestAdd) ... ok
+test_add_strings (__main__.TestAdd) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
+
+4. Une autre façon de tester, un peu plus puissante est de passer par le programme python unittest, qui va se charger d’exécuter les tests :
+python3 -m unittest test_mymath.py -v
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/math/test$ python3 -m unittest test_mymath.py -v
+test_add_floats (test_mymath.TestAdd) ... ok
+test_add_integers (test_mymath.TestAdd) ... ok
+test_add_strings (test_mymath.TestAdd) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK
+Ce qui fait exactement la même chose que le mode verbeux vu plus haut vu que le module unittest est importé dans le fichier de base.
+  
+python3 -m unittest -h
+
+Affiche l'aide d'unittest
+De cette façon, le programme principal de notre module de test n’est plus nécessaire : vous pouvez supprimer les deux dernières lignes.
+
+Il est également possible de ne tester qu’une méthode de test (supposons qu’un seul test
+échoue, et que les autres tests soient très longs à s’exécuter) :
+
+python3 -m unittest test_mymath.TestAdd.test_add_integers
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/math/test$ python3 -m unittest test_mymath.TestAdd.test_add_integers
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+
+En supposant que l’on ait plusieurs cas de tests dans ce même module (TestAdd,
+TestMultiply, etc.), il est possible de n’en exécuter qu’un seul :
+
+python3 -m unittest test_mymath.TestAdd
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/math/test$ python3 -m unittest test_mymath.TestAdd
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+
+.Autres Assertions
+Bien entendu, en sus de la méthode assertEqual, il existe d’autres méthodes permettant de vérifier qu’une
+condition est vérifiée, qu’une Exception donnée est levée, etc.
+Méthode                           Explications
+assertEqual(a, b)                   a == b
+assertNotEqual(a, b)                a != b
+assertTrue(x)                       x is True
+assertFalse(x)                      x is False
+assertIs(a, b)                      a is b
+assertIsNot(a, b)                   a is not b
+assertIsNone(x)                     x is None
+assertIsNotNone(x)                  x is not None
+assertIn(a, b)                      a in b
+assertNotIn(a, b)                   a not in b
+assertIsInstance(a, b)              isinstance(a, b)
+assertNotIsInstance(a, b)           not isinstance(a, b)
+assertRaises(exception, fonction, *args, **kwargs) Vérifie que la fonction lève l'exception attendue
