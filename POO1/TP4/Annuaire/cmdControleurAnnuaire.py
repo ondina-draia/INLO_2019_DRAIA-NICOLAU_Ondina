@@ -8,25 +8,26 @@ import tkinter.messagebox
 repertoire = {} #le dictionnaire qui va contenir toutes les données de notre application annuaire
 #data = vue.installerComposants(vue.champPrenom, vue.champTelephone, vue.champAdresse, vue.champVille) #afin de remplir le répertoire, on ajoute les informations complémentaires au nom
 
-def chercher():
-    #if not vue.Nom.get(): #tester si Nom est vide
+def chercher(Nom):
+    #if Nom == '':
+    if not Nom.get(): #tester si Nom est vide
         vue.afficheWarning("Champ \"Nom\" vide: Vous devez au minimum spécifier un nom")
         return False
-    if not repertoire.estPresent(vue.Nom):
-        vue.afficheWarning(vue.Nom + ": absent du répertoire")
+    elif not repertoire.estPresent(Nom):
+        vue.afficheWarning(Nom.get() + ": absent du répertoire")
         return False
     else:
         print('test')
     #repertoire.chercher(vue.Nom, data)
 
 def inserer(Nom):
-    if Nom == '':
-    #if not vue.installerComposants.nom.get(): #tester si nom est vide
+    #if Nom == '':
+    if not Nom.get(): #tester si nom est vide
         vue.afficheWarning("Champ \"Nom\" vide: vous devez au minimum spécifier un nom")
         return False
     else:
         #repertoire.inserer(vue.Nom, data)
-        tkinter.messagebox.showinfo(Nom +": ajouté au répertoire")
+        tkinter.messagebox.showinfo(Nom.get() +": ajouté au répertoire")
 
 '''
 def effacer():

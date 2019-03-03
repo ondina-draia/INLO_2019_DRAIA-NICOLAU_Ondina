@@ -12,7 +12,6 @@ def installerComposants():
     Nom = StringVar()
     lab = Label(application, text = 'Nom').grid(row = 0, column = 0)
     champNom = Entry(application, textvariable = Nom).grid(row = 0, column = 1, padx = 5, pady = 5)
-    ctrl.inserer(Nom)
     
     global champPrenom
     lab = Label(application, text = 'Prénom').grid(row = 1, column = 0)
@@ -30,8 +29,8 @@ def installerComposants():
     lab = Label(application, text = 'Ville').grid(row = 4, column = 0)
     champVille = Entry(application).grid(row = 4, column = 1, padx = 5, pady = 5)
     
-    Button(application, text = 'Chercher', command = ctrl.chercher).grid(row = 6, column = 0)
-    Button(application, text = 'Inserer', command = ctrl.inserer).grid(row = 6, column = 1)
+    Button(application, text = 'Chercher', command = ctrl.chercher(Nom)).grid(row = 6, column = 0)
+    Button(application, text = 'Inserer', command = ctrl.inserer(Nom)).grid(row = 6, column = 1)
     #Button(application, text = 'Effacer', command = ctrl.effacer).grid(row = 6, column = 2)
     
     
