@@ -1,0 +1,27 @@
+Exercice : tests fonctionnels d’une Pile et d’une File
+
+1.3 - Une file possède deux préconditions équivalentes à celles d’une pile ; les deux premiers axiomes
+d’une pile sont également transposables directement à une file. En outre, elle possède 4 autres axiomes :
+1. Si une file est vide, alors la tête d’une file sur laquelle on enfile un élément e est e.
+2. Si une file n’est pas vide, alors la tête d’une file sur laquelle on enfile un élément e est identique à la
+tête de la file avant l’opération d’enfilement.
+3. Une file vide qui subit un enfilement suivi d’un défilement est toujours une file vide
+4. Sur une file non vide, un enfilement suivi d’un défilement est identique à un défilement suivi d’un
+enfilement.
+
+Le code verifie donc ces 4 axiomes avec la classe File
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/TP4$ python3 test_file_1.3.py -v
+test_defilenfil_enfildefil (__main__.TestFile)
+Sur une file non vide, un enfilement suivi d’un défilement est identique à un défilement suivi d’un ... ok
+test_enf_def_vide (__main__.TestFile)
+Une file vide qui subit un enfilement suivi d’un défilement est toujours une file vide ... ok
+test_tete_elt (__main__.TestFile)
+Si une file est vide, alors la tête d’une file sur laquelle on enfile un élément e est e ... ok
+test_tete_inchangee (__main__.TestFile)
+Si une file n’est pas vide, alors la tête d’une file sur laquelle on enfile un élément e est identique ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.008s
+
+OK
