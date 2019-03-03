@@ -29,9 +29,9 @@ def installerComposants():
     lab = Label(application, text = 'Ville').grid(row = 4, column = 0)
     champVille = Entry(application).grid(row = 4, column = 1, padx = 5, pady = 5)
     
-    Button(application, text = 'Chercher', command = ctrl.chercher(Nom)).grid(row = 6, column = 0)
-    Button(application, text = 'Inserer', command = ctrl.inserer(Nom)).grid(row = 6, column = 1)
-    #Button(application, text = 'Effacer', command = ctrl.effacer).grid(row = 6, column = 2)
+    Button(application, text = 'Chercher', command = lambda: ctrl.chercher(Nom)).grid(row = 6, column = 0)
+    Button(application, text = 'Inserer', command = lambda: ctrl.inserer(Nom)).grid(row = 6, column = 1)
+    #Button(application, text = 'Effacer', command = lambda: ctrl.effacer).grid(row = 6, column = 2)
     
     
 def afficheMessage(s):

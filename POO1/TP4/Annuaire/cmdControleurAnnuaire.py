@@ -31,11 +31,12 @@ def inserer(Nom):
 
 '''
 def effacer():
-    vue.Nom.get() = ''
-    vue.Prenom.get() = ''
-    vue.Telephone.get() = ''
-    vue.Adresse.get() = ''
-    vue.Ville.get() = ''
+    if tkinter.messagebox.askyesno("Voulez-vous vraiment tout effacer" + '\u00A0' + '?'):
+        vue.Nom.get() = ''
+        vue.Prenom.get() = ''
+        vue.Telephone.get() = ''
+        vue.Adresse.get() = ''
+        vue.Ville.get() = ''
     '''
 
 #def chercher(repertoire, nom):
