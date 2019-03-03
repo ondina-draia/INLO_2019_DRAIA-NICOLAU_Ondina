@@ -1,41 +1,38 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import sys
-from tkinter import Tk, Label, Entry, Button
+from tkinter import Tk, Label, Entry, Button, StringVar
+import cmdControleurAnnuaire as ctrl
+
 
 def installerComposants():
     
     global champNom
-    lab = Label(application, text = 'Nom')
-    lab.grid(row = 0, column = 0)
-    champNom = Entry(application)
-    champNom.grid(row = 0, column = 1, padx = 5, pady = 5)
+    Nom = StringVar()
+    lab = Label(application, text = 'Nom').grid(row = 0, column = 0)
+    champNom = Entry(application, textvariable = Nom).grid(row = 0, column = 1, padx = 5, pady = 5)
+    ctrl.inserer(Nom)
     
     global champPrenom
-    lab = Label(application, text = 'Prénom')
-    lab.grid(row = 1, column = 0)
-    champPrenom = Entry(application)
-    champPrenom.grid(row = 1, column = 1, padx = 5, pady = 5)
+    lab = Label(application, text = 'Prénom').grid(row = 1, column = 0)
+    champPrenom = Entry(application).grid(row = 1, column = 1, padx = 5, pady = 5)
 
     global champTelephone
-    lab = Label(application, text = 'Téléphone')
-    lab.grid(row = 2, column = 0)
-    champTelephone = Entry(application)
-    champTelephone.grid(row = 2, column = 1, padx = 5, pady = 5)
+    lab = Label(application, text = 'Téléphone').grid(row = 2, column = 0)
+    champTelephone = Entry(application).grid(row = 2, column = 1, padx = 5, pady = 5)
     
     global champAdresse
-    lab = Label(application, text = 'Adresse')
-    lab.grid(row = 3, column = 0)
-    champAdresse = Entry(application)
-    champAdresse.grid(row = 3, column = 1, padx = 5, pady = 5)
+    lab = Label(application, text = 'Adresse').grid(row = 3, column = 0)
+    champAdresse = Entry(application).grid(row = 3, column = 1, padx = 5, pady = 5)
     
     global champVille
-    lab = Label(application, text = 'Ville')
-    lab.grid(row = 4, column = 0)
-    champVille = Entry(application)
-    champVille.grid(row = 4, column = 1, padx = 5, pady = 5)
+    lab = Label(application, text = 'Ville').grid(row = 4, column = 0)
+    champVille = Entry(application).grid(row = 4, column = 1, padx = 5, pady = 5)
     
-    Button(application, text = 'Chercher').grid(row = 6, column = 0, columnspan = 1, padx = 2, pady = 2)
-    Button(application, text = 'Inserer').grid(row = 6, column = 1, columnspan = 1, padx = 2, pady = 2)
-    Button(application, text = 'Effacer').grid(row = 6, column = 2, columnspan = 1, padx = 2, pady = 2)
+    Button(application, text = 'Chercher', command = ctrl.chercher).grid(row = 6, column = 0)
+    Button(application, text = 'Inserer', command = ctrl.inserer).grid(row = 6, column = 1)
+    #Button(application, text = 'Effacer', command = ctrl.effacer).grid(row = 6, column = 2)
     
     
 def afficheMessage(s):
@@ -43,6 +40,15 @@ def afficheMessage(s):
 
 def afficheWarning(s):
 	print(s, file=sys.stderr)
+
+#barreDeMenus = Menu(application)
+#application.config(menu = barreDeMenus)
+#menuFichier = Menu(barreDeMenus)
+#barreDeMenus.add_cascade(label="Fichier", menu=menuFichier)
+#menuFichier.add_command(label="Nouveau", command=pressionBoutonEffacer)
+#menuFichier.add_command(label="Ouvrir...", command=restaurerGraphe)
+#menuFichier.add_command(label="Enregistrer sous...", command=enregistrerGraphe)
+#menuFichier.add_command(label="Quitter", command=comMenuQuitter)
 
 if __name__ == '__main__':
     application = Tk()
