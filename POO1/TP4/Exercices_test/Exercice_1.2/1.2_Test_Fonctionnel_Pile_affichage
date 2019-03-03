@@ -1,0 +1,47 @@
+Lorsqu'on donne de base dans le setUp une pile vide (p = pile_file_obj.Pile() / self.pile = p.pile):
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/TP4$ python3 test_pile_1.2.py -v
+test_pile_cree_vide (__main__.TestPile)
+Teste si une pile venant d'etre cree est vide ... ok
+test_pile_empile_depile (__main__.TestPile)
+Teste que toute pile venant d'etre empilee puis depilee reste inchangee ... ok
+test_pile_empile_nonvide (__main__.TestPile)
+Teste que toute pile venant d'etre empilee est non vide ... ok
+test_sommet_elt (__main__.TestPile)
+Teste que tout sommet d'une pile auquelle on vient d'empiler un element e est donc e ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.008s
+
+OK
+
+Tous les quatre tests sont validés
+
+Si la pile donnée de base est non vide (self.pile = [1]):
+
+ondina@LAPTOP-PJH4E0US:/mnt/c/Users/castr/OneDrive/Documents/Master 1 Bioinformatique/InLo/TP4$ python3 test_pile_1.2.py -v
+test_pile_cree_vide (__main__.TestPile)
+Teste si une pile venant d'etre cree est vide ... FAIL
+test_pile_empile_depile (__main__.TestPile)
+Teste que toute pile venant d'etre empilee puis depilee reste inchangee ... ok
+test_pile_empile_nonvide (__main__.TestPile)
+Teste que toute pile venant d'etre empilee est non vide ... ok
+test_sommet_elt (__main__.TestPile)
+Teste que tout sommet d'une pile auquelle on vient d'empiler un element e est donc e ... ok
+
+======================================================================
+FAIL: test_pile_cree_vide (__main__.TestPile)
+Teste si une pile venant d'etre cree est vide
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_pile_1.2.py", line 20, in test_pile_cree_vide
+    self.assertTrue(pile_file_obj.Pile.estVide(self)) #estVide renvoie true si la pile est vide, assertTrue verifie cela
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+FAILED (failures=1)
+
+Le test verifiant si la pile nouvellement crée est vide echoue
+
