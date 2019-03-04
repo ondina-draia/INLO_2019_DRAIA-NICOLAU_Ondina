@@ -14,24 +14,28 @@ def installerComposants():
     champNom = Entry(application, textvariable = Nom).grid(row = 0, column = 1, padx = 5, pady = 5)
     
     global champPrenom
+    Prenom = StringVar()
     lab = Label(application, text = 'Prénom').grid(row = 1, column = 0)
-    champPrenom = Entry(application).grid(row = 1, column = 1, padx = 5, pady = 5)
+    champPrenom = Entry(application, textvariable = Prenom).grid(row = 1, column = 1, padx = 5, pady = 5)
 
     global champTelephone
+    Telephone = StringVar()
     lab = Label(application, text = 'Téléphone').grid(row = 2, column = 0)
-    champTelephone = Entry(application).grid(row = 2, column = 1, padx = 5, pady = 5)
+    champTelephone = Entry(application, textvariable = Telephone).grid(row = 2, column = 1, padx = 5, pady = 5)
     
     global champAdresse
+    Adresse = StringVar()
     lab = Label(application, text = 'Adresse').grid(row = 3, column = 0)
-    champAdresse = Entry(application).grid(row = 3, column = 1, padx = 5, pady = 5)
+    champAdresse = Entry(application, textvariable = Adresse).grid(row = 3, column = 1, padx = 5, pady = 5)
     
     global champVille
+    Ville = StringVar()
     lab = Label(application, text = 'Ville').grid(row = 4, column = 0)
-    champVille = Entry(application).grid(row = 4, column = 1, padx = 5, pady = 5)
+    champVille = Entry(application, textvariable = Ville).grid(row = 4, column = 1, padx = 5, pady = 5)
     
     Button(application, text = 'Chercher', command = lambda: ctrl.chercher(Nom)).grid(row = 6, column = 0)
-    Button(application, text = 'Inserer', command = lambda: ctrl.inserer(Nom)).grid(row = 6, column = 1)
-    #Button(application, text = 'Effacer', command = lambda: ctrl.effacer).grid(row = 6, column = 2)
+    Button(application, text = 'Inserer', command = lambda: ctrl.inserer(Nom, Prenom, Telephone, Adresse, Ville)).grid(row = 6, column = 1)
+    Button(application, text = 'Effacer', command = lambda: ctrl.effacer(Nom, Prenom, Telephone, Adresse, Ville)).grid(row = 6, column = 2)
     
     
 def afficheMessage(s):

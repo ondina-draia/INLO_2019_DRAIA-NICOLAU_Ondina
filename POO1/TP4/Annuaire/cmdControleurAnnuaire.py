@@ -9,7 +9,7 @@ repertoire = {} #le dictionnaire qui va contenir toutes les données de notre ap
 #data = vue.installerComposants(vue.champPrenom, vue.champTelephone, vue.champAdresse, vue.champVille) #afin de remplir le répertoire, on ajoute les informations complémentaires au nom
 
 def chercher(Nom):
-    #if Nom == '':
+    '''comand for button "chercher"'''
     if not Nom.get(): #tester si Nom est vide
         vue.afficheWarning("Champ \"Nom\" vide: Vous devez au minimum spécifier un nom")
         return False
@@ -20,24 +20,29 @@ def chercher(Nom):
         print('test')
     #repertoire.chercher(vue.Nom, data)
 
-def inserer(Nom):
-    #if Nom == '':
+def inserer(Nom, Prenom, Telephone, Adresse, Ville):
+    '''comand for button "inserer"'''
     if not Nom.get(): #tester si nom est vide
         vue.afficheWarning("Champ \"Nom\" vide: vous devez au minimum spécifier un nom")
         return False
     else:
-        #repertoire.inserer(vue.Nom, data)
+        repertoire = Nom.get(), Prenom.get(), Telephone.get(), Adresse.get(), Ville.get()
         tkinter.messagebox.showinfo(Nom.get() +": ajouté au répertoire")
+        supprimer(Nom, Prenom, Telephone, Adresse, Ville)
+        return repertoire
 
-'''
-def effacer():
+def supprimer(Nom, Prenom, Telephone, Adresse, Ville):
+    '''delete fields from labels'''
+    Nom.set('')
+    Prenom.set('')
+    Telephone.set('')
+    Adresse.set('')
+    Ville.set('')
+
+def effacer(Nom, Prenom, Telephone, Adresse, Ville):
+    '''comand for button "effacer"'''
     if tkinter.messagebox.askyesno("Voulez-vous vraiment tout effacer" + '\u00A0' + '?'):
-        vue.Nom.get() = ''
-        vue.Prenom.get() = ''
-        vue.Telephone.get() = ''
-        vue.Adresse.get() = ''
-        vue.Ville.get() = ''
-    '''
+        supprimer(Nom, Prenom, Telephone, Adresse, Ville)
 
 #def chercher(repertoire, nom):
 #	"""
