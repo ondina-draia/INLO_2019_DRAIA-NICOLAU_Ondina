@@ -4,6 +4,7 @@
 from modeleAnnuaire import ModeleAnnuaire
 import cmdVueAnnuaire as vue
 import tkinter.messagebox, tkinter.filedialog
+import pickle
 
 repertoire_global = ModeleAnnuaire() #variable storing the data of the application
 
@@ -26,7 +27,6 @@ def chercher(Nom, Prenom, Telephone, Adresse, Ville):
     #return data corresponding to "Nom"
     else:
         prenom, tel, adresse, ville = repertoire_global.chercher(nom)
-        #Nom.set(nom) #
         Prenom.set(prenom) #set "Prenom" field value to corresponding "Nom"
         Telephone.set(tel) #set "Telephone" field value to corresponding "Nom"
         Adresse.set(adresse) #set "Adresse" field value to corresponding "Nom"
@@ -60,11 +60,11 @@ def inserer(Nom, Prenom, Telephone, Adresse, Ville):
 def supprimer(Nom, Prenom, Telephone, Adresse, Ville):
     '''delete fields from labels'''
     
-    Nom.set('') #set "Nom" field value to back to nothing
-    Prenom.set('') #set "Prenom" field value to back to nothing
-    Telephone.set('') #set "Telephone" field value to back to nothing
-    Adresse.set('') #set "Adresse" field value to back to nothing
-    Ville.set('') #set "Ville" field value to back to nothing
+    Nom.set('') #set "Nom" field value back to nothing
+    Prenom.set('') #set "Prenom" field value back to nothing
+    Telephone.set('') #set "Telephone" field value back to nothing
+    Adresse.set('') #set "Adresse" field value back to nothing
+    Ville.set('') #set "Ville" field value back to nothing
 
 
 def effacer(Nom, Prenom, Telephone, Adresse, Ville):
@@ -80,29 +80,28 @@ def enregistrer():
     '''command for "Enregistrer sous..." in menu (in "Fichier")
     save data in a file'''
     
-    tkinter.messagebox.showwarning("Excuses...",
-            "La fonction 'enregistrer' n'est pas encore implémentée") 
-
-    #fichier = tkinter.filedialog.asksaveasfile()
-    #if fichier == None:
-    #    return
-    #print(file = repertoire_global)
-    #fichier.close()
+    fichier = tkinter.filedialog.asksaveasfile()
+    if fichier == None:
+        return
     
-    # AttributeError: 'ModeleAnnuaire' object has no attribute 'write'
-    # Tichit advice: utilisez soit un fichier texte et un parser, soit le module pickle
+    pickle_out = open('data.pickle', 'wb') #open data with the ability to write in bytes
+    pickle.dump(repertoire_global, pickle_out) #dump data from "repertoire_global" into pickle_out
+    pickle_out.close()
        
                                                                              
 def restaurer():
     '''command for "Ouvrir" in menu (in "Fichier")
     open saved data from a file'''
     
-    tkinter.messagebox.showwarning("Excuses...",
-            "La fonction 'restaurer' n'est pas encore implémentée")
+    fichier = tkinter.filedialog.askopenfile()
+    if fichier == None:
+        return
     
-    #fichier = tkinter.filedialog.askopenfile()
-    #if fichier == None:
-    #    return
+    pickle_in = open('data.pickle', 'rb') #open data with ability to read in bytes
+    global repertoire_global
+    repertoire_global = pickle.load(pickle_in) #load data
+    #print(repertoire_global)
+
 
 def quitter(application):
     '''command for "quitter" in menu (in "Fichier")
