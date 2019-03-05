@@ -12,7 +12,7 @@ repertoire_global = ModeleAnnuaire() #variable storing the data of the applicati
 def chercher(Nom, Prenom, Telephone, Adresse, Ville):
     '''comand for button "chercher"
     look for a contact using "Nom"'''
-    nom = Nom.get()
+    nom = Nom.get() #define 'nom' variable while obtaining it from the 'Nom' entry  
     
     #test if field "Nom" is empty
     if not Nom.get():
@@ -26,7 +26,7 @@ def chercher(Nom, Prenom, Telephone, Adresse, Ville):
     
     #return data corresponding to "Nom"
     else:
-        prenom, tel, adresse, ville = repertoire_global.chercher(nom)
+        prenom, tel, adresse, ville = repertoire_global.chercher(nom) #calling 'chercher' method from the model and obtaining the list of values associated with the key 'nom'
         Prenom.set(prenom) #set "Prenom" field value to corresponding "Nom"
         Telephone.set(tel) #set "Telephone" field value to corresponding "Nom"
         Adresse.set(adresse) #set "Adresse" field value to corresponding "Nom"
@@ -51,9 +51,8 @@ def inserer(Nom, Prenom, Telephone, Adresse, Ville):
         repertoire.inserer(nom, data)
         tkinter.messagebox.showinfo(nom +": ajouté au répertoire")
         supprimer(Nom, Prenom, Telephone, Adresse, Ville)
-        global repertoire_global #appel de la variable globale afin de la modifier
-        repertoire_global.inserer(nom, data)
-        #print(repertoire_global)
+        global repertoire_global #calling the global variable 'repertoire_global' and insert the data inside of it
+        repertoire_global.inserer(nom, data) #calling the 'inserer' method from the model
         return repertoire
 
 
@@ -80,8 +79,8 @@ def enregistrer():
     '''command for "Enregistrer sous..." in menu (in "Fichier")
     save data in a file'''
     
-    fichier = tkinter.filedialog.asksaveasfile()
-    if fichier == None:
+    fichier = tkinter.filedialog.asksaveasfile() #opens a dialog box that asks the user where to save the file
+    if fichier == None: #if no path for a file was given
         return
     
     pickle_out = open('data.pickle', 'wb') #open data with the ability to write in bytes
@@ -94,20 +93,18 @@ def restaurer():
     open saved data from a file'''
     
     fichier = tkinter.filedialog.askopenfile()
-    if fichier == None:
+    if fichier == None: #if no path for a file was given
         return
     
     pickle_in = open('data.pickle', 'rb') #open data with ability to read in bytes
-    global repertoire_global
+    global repertoire_global #allows to update data in the global variable 'repertoire_global'
     repertoire_global = pickle.load(pickle_in) #load data
-    #print(repertoire_global)
 
-
+    
 def quitter(application):
     '''command for "quitter" in menu (in "Fichier")
     exit button for application'''
     
-    #from tkinter import Tk
     if tkinter.messagebox.askyesno("Attention",
             "Vous voulez vraiment quitter ce programme" + '\u00A0' + "?"):
         application.destroy() #destroy graphical view
