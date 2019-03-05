@@ -14,15 +14,15 @@ class TestPile(unittest.TestCase):
     
     def setUp(self):
         """Initialisation des tests."""
-        self.pile = list(range(0))
+        self.pile = list(range(0)) #cree une liste vide
         
     def test_depiler(self):
         """Verifie qu'une pile vide ne peut être dépilée, lévée d'exception si la pile est vide"""
-        self.assertRaises(IndexError, pile_file_obj.Pile.depiler, self)
+        self.assertRaises(IndexError, pile_file_obj.Pile.depiler, self) #verifie si une exception de type IndexError est levee
         
     def test_sommet(self):
         """Verifie egalement qu'on ne peut lire le sommet d'une pile vide"""
-        self.assertRaises(IndexError, pile_file_obj.Pile.sommet, self)        
+        self.assertRaises(IndexError, pile_file_obj.Pile.sommet, self) #verifie si une exception de type IndexError est levee       
 
 if __name__ == '__main__':
 	unittest.main() 
