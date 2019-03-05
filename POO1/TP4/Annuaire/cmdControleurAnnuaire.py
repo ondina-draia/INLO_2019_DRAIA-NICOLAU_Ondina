@@ -3,13 +3,14 @@
 
 from modeleAnnuaire import ModeleAnnuaire
 import cmdVueAnnuaire as vue
-import tkinter.messagebox
+import tkinter.messagebox, tkinter.filedialog
 
 repertoire_global = ModeleAnnuaire() #variable storing the data of the application
 
 
 def chercher(Nom, Prenom, Telephone, Adresse, Ville):
-    '''comand for button "chercher"'''
+    '''comand for button "chercher"
+    look for a contact using "Nom"'''
     nom = Nom.get()
     
     #test if field "Nom" is empty
@@ -34,7 +35,8 @@ def chercher(Nom, Prenom, Telephone, Adresse, Ville):
 
       
 def inserer(Nom, Prenom, Telephone, Adresse, Ville):
-    '''comand for button "inserer"'''
+    '''comand for button "inserer"
+    add a contact: "Nom" needs to be specified'''
     
     #test if field "Nom" is empty
     if not Nom.get():
@@ -66,7 +68,59 @@ def supprimer(Nom, Prenom, Telephone, Adresse, Ville):
 
 
 def effacer(Nom, Prenom, Telephone, Adresse, Ville):
-    '''command for button "effacer"'''
+    '''command for button "effacer"
+    delete values from all fields'''
     
-    if tkinter.messagebox.askyesno("Voulez-vous vraiment tout effacer" + '\u00A0' + '?'): #message box to check if user really wants to delete values from fields
+    if tkinter.messagebox.askyesno("Attention",
+            "Voulez-vous vraiment tout effacer" + '\u00A0' + '?'): #message box to check if user really wants to delete values from fields
         supprimer(Nom, Prenom, Telephone, Adresse, Ville) #delete values from fields
+
+
+def enregistrer():
+    '''command for "Enregistrer sous..." in menu (in "Fichier")
+    save data in a file'''
+    
+    tkinter.messagebox.showwarning("Excuses...",
+            "La fonction 'enregistrer' n'est pas encore implémentée") 
+
+    #fichier = tkinter.filedialog.asksaveasfile()
+    #if fichier == None:
+    #    return
+    #print(file = repertoire_global)
+    #fichier.close()
+    
+    # AttributeError: 'ModeleAnnuaire' object has no attribute 'write'
+    # Tichit advice: utilisez soit un fichier texte et un parser, soit le module pickle
+       
+                                                                             
+def restaurer():
+    '''command for "Ouvrir" in menu (in "Fichier")
+    open saved data from a file'''
+    
+    tkinter.messagebox.showwarning("Excuses...",
+            "La fonction 'restaurer' n'est pas encore implémentée")
+    
+    #fichier = tkinter.filedialog.askopenfile()
+    #if fichier == None:
+    #    return
+
+def quitter(application):
+    '''command for "quitter" in menu (in "Fichier")
+    exit button for application'''
+    
+    #from tkinter import Tk
+    if tkinter.messagebox.askyesno("Attention",
+            "Vous voulez vraiment quitter ce programme" + '\u00A0' + "?"):
+        application.destroy() #destroy graphical view
+
+
+def propos():
+    '''command for "A propos" in menu (in "Aide")
+    description of the application'''
+    
+    tkinter.messagebox.showinfo(
+            "À propos de...",
+            "Annuaire\n\n" +
+            "un annuaire basique pour créer un répertoire\n" +
+            "et chercher des contacts dans ce répertoire avec Tkinter    \n\n"  +
+            "(C) 2019 O. Draia-Nicolau & M. Murray")

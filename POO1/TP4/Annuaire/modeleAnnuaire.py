@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 class ModeleAnnuaire():
-	"""modèle d'Annuaire"""
+	'''description of "Annuaire"'''
 
 	def __init__(self):
 		self.__annuaire = {}
