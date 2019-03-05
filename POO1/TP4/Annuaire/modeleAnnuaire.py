@@ -4,24 +4,24 @@
 class ModeleAnnuaire():
 	'''description of "Annuaire"'''
 
-	def __init__(self):
+	def __init__(self): #creates the 'annuaire' (phone book)
 		self.__annuaire = {}
 
-	def __str__(self):
+	def __str__(self): #organizes how the values will be showed and returned 
 		l = []
 		for k in self.__annuaire:
 			data = self.__annuaire[k]
-			l.append(str(k) + ': ' + str(data))
+			l.append(str(k) + ': ' + str(data)) 
 			l.sort()
 		return '\n'.join(l)
 
-	def chercher(self, nom):
+	def chercher(self, nom): #searchs for a certain data associated to the given 'nom' key and returns it
 		return self.__annuaire[nom]
 
-	def estPresent(self, nom):
+	def estPresent(self, nom): #checks if an entry exists in the dictionnary and returns it
 		return nom in self.__annuaire
 
-	def inserer(self, nom, data):
+	def inserer(self, nom, data): #inserts new data in the dictionnary and associates it with the given 'nom' value
 	    self.__annuaire[nom] = data
 
 def testModeleAnnuaire():
