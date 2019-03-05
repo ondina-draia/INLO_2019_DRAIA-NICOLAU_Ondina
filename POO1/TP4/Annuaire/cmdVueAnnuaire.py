@@ -8,32 +8,33 @@ import cmdControleurAnnuaire as ctrl
 
 def installerComposants():
     
-    global champNom
+    global champNom #view for "Nom" button
     Nom = StringVar()
     lab = Label(application, text = 'Nom').grid(row = 0, column = 0)
     champNom = Entry(application, textvariable = Nom).grid(row = 0, column = 1, padx = 5, pady = 5)
     
-    global champPrenom
+    global champPrenom #view for "Prenom" button
     Prenom = StringVar()
     lab = Label(application, text = 'Prénom').grid(row = 1, column = 0)
     champPrenom = Entry(application, textvariable = Prenom).grid(row = 1, column = 1, padx = 5, pady = 5)
 
-    global champTelephone
+    global champTelephone #view for "Telephone" button
     Telephone = StringVar()
     lab = Label(application, text = 'Téléphone').grid(row = 2, column = 0)
     champTelephone = Entry(application, textvariable = Telephone).grid(row = 2, column = 1, padx = 5, pady = 5)
     
-    global champAdresse
+    global champAdresse #view for "Adresse" button
     Adresse = StringVar()
     lab = Label(application, text = 'Adresse').grid(row = 3, column = 0)
     champAdresse = Entry(application, textvariable = Adresse).grid(row = 3, column = 1, padx = 5, pady = 5)
     
-    global champVille
+    global champVille #view for "Ville" button
     Ville = StringVar()
     lab = Label(application, text = 'Ville').grid(row = 4, column = 0)
     champVille = Entry(application, textvariable = Ville).grid(row = 4, column = 1, padx = 5, pady = 5)
     
-    Button(application, text = 'Chercher', command = lambda: ctrl.chercher(Nom)).grid(row = 6, column = 0)
+    #linking command functions to pressing the buttons
+    Button(application, text = 'Chercher', command = lambda: ctrl.chercher(Nom, Prenom, Telephone, Adresse, Ville)).grid(row = 6, column = 0)
     Button(application, text = 'Inserer', command = lambda: ctrl.inserer(Nom, Prenom, Telephone, Adresse, Ville)).grid(row = 6, column = 1)
     Button(application, text = 'Effacer', command = lambda: ctrl.effacer(Nom, Prenom, Telephone, Adresse, Ville)).grid(row = 6, column = 2)
     
