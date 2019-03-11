@@ -9,15 +9,12 @@ Created on Wed Mar  6 15:55:57 2019
 #MySQL à l’université) en utilisant SQLAlchemy
 
 from sqlalchemy import create_engine
-from sqlalchemy import and_
-from sqlalchemy.sql import select, text
-import pymysql
 
-db = pymysql.connect("ensembldb.ensembl.org","anonymous","","homo_sapiens_core_95_38" )
-cursor = db.cursor()
-cursor.execute("select * from gene limit 10;")
-myresults = cursor.fetchall()
-for x in myresults:
-    print(*x)
-cursor.close()
-db.close()
+engine = create_engine("mysql+pymysql://anonymous@ensembldb.ensembl.org/homo_sapiens_core_95_38", echo=True)
+conn = engine.connect()
+
+from sqlalchemy.sql import select, text
+s = select([text("* from gene limit 10;")]) 
+result = conn.execute(s).fetchall()
+print(result)
+
