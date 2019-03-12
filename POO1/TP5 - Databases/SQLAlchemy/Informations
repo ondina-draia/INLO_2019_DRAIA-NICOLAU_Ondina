@@ -1,4 +1,7 @@
 Ici:
 - tutorial: sql_alchemy_1.py
 - devoir maison question 1: sql_alchemy_DM_1.py
-- devoir maison question 2: modeleAnnuaire.py	+ creation_annuaire_db.py
+- devoir maison question 2: modeleAnnuaire.py (1)	+ creation_annuaire_db.py (2) 
+(1) modeleAnnuaire modifié en ayant ajouté la fonction import_db permettant d'importer les informations d'une base de données
+locale de type annuaire via sqlAlchemy
+(2) creation_annuaire_db: permet la création d'une base de données de type annuaire
