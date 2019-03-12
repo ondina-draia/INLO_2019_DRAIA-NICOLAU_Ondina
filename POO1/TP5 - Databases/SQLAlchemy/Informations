@@ -1,3 +1,4 @@
 Ici:
-- tutoriel SQLAlchemy
-- devoirs maison
+- tutorial: sql_alchemy_1.py
+- devoir maison question 1: sql_alchemy_DM_1.py
+- devoir maison question 2: modeleAnnuaire.py	+ creation_annuaire_db.py
